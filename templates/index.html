@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+</head>
+<body>
+    <h1>Enter Link and Question</h1>
+    <form method="POST">
+        <label for="link">Link:</label><br>
+        <input type="text" id="link" name="link" value="https://timesofindia.indiatimes.com/" required><br><br>
+        
+        <label for="question">Question:</label><br>
+        <textarea id="question" name="question" rows="3" required>PPT of major bollywood events</textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    {% if link and question %}
+        <h2>Submitted Values</h2>
+        <p><strong>Link:</strong> {{ link }}</p>
+        <p><strong>Question:</strong> {{ question }}</p>
+        {% if download %}
+            <a href="/download" download="presentation.pptx"><button>Download Presentation</button></a>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
